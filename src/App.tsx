@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.scss';
+import ProfileCard from './components/ProfileCard';
+import UserSelector from './components/UserSelector';
+import User from './models/User';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const users: User[] = [
+        new User("vcrest", "Victor Crest", 26, "London", 80000, 803000, 1400, "./images/avatars/image-victor.jpg"),
+        new User("jrandall", "Jessica Randall", 29, "London", 500, 999, 57, "./images/avatars/avatar-jessica.jpeg"),
+        new User("bfranklin", "Benjamin Franklin", 319, "Philadelphia", 1234, 1234, 1234, "./images/avatars/avatar-benjamin.jpg")
+    ]
+    const [selectedUser, setSelectedUser] = useState(users[0]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleUserChange = (selectedUser: string) => {
+        const myUser = users.find((user) => user.userName == selectedUser)
+        if (myUser != undefined) {
+            setSelectedUser(myUser);
+        }
+    };
+
+    return (
+        <div className="app-container">
+            <header className="app-header">
+                <UserSelector users={users} onUserChange={handleUserChange} />
+            </header>
+            <main className="app-main">
+                <ProfileCard user={selectedUser} />
+            </main>
+            <footer className="app-footer">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                Coded by <a href="https://www.frontendmentor.io/profile/lenny131">Leonard Cohen</a>.
+            </footer>
+        </div>
+    )
 }
 
 export default App

@@ -1,0 +1,36 @@
+@use "./style-presets/colors" as c;
+@use "./style-presets/spacing" as s;
+@use "./style-presets/typography" as t;
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: c.$blue-600;
+    background-image: url("./assets/bg-pattern-top.svg"), url("./assets/bg-pattern-bottom.svg");
+    // background image size is 978px x 978px
+    background-position: calc(50% - 489px) calc(50% - 489px), calc(50% + 489px) calc(50% + 489px);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-block: s.spacing(200);
+}
+
+.app-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-footer {
+    @include t.text-preset-3;
+    color: c.$navy-950;
+    text-align: center;
+}

@@ -1,0 +1,20 @@
+@use "../style-presets/colors" as c;
+@use "../style-presets/spacing" as s;
+@use "../style-presets/typography" as t;
+
+.user-selector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: s.spacing(100);
+
+    label {
+        @include t.text-preset-2;
+        color: c.$navy-950;
+    }
+    
+    select {
+        @include t.text-preset-2;
+        color: c.$navy-950;
+    }
+}

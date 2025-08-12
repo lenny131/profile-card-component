@@ -1,0 +1,46 @@
+@mixin _kumbh-sans {
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "YOPQ" 300;
+}
+
+@mixin _kumbh-sans-regular {
+    @include _kumbh-sans;
+    font-weight: 400;
+}
+
+@mixin _kumbh-sans-bold {
+    @include _kumbh-sans;
+    font-weight: 700;
+}
+
+@mixin _text-preset-1 {
+    font-size: 1.125rem;
+    line-height: 125%;
+    letter-spacing: 0;
+}
+
+@mixin text-preset-1-bold {
+    @include _kumbh-sans-bold;
+    @include _text-preset-1;
+}
+
+@mixin text-preset-1-regular {
+    @include _kumbh-sans-regular;
+    @include _text-preset-1;
+}
+
+@mixin text-preset-2 {
+    @include _kumbh-sans-regular;
+    font-size: 0.875rem;
+    line-height: 125%;
+    letter-spacing: 0;
+}
+
+@mixin text-preset-3 {
+    @include _kumbh-sans-regular;
+    font-size: 0.625rem;
+    line-height: 125%;
+    letter-spacing: 0.09375rem;
+}

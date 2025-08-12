@@ -1,0 +1,95 @@
+@use "../style-presets/colors" as c;
+@use "../style-presets/spacing" as s;
+@use "../style-presets/typography" as t;
+
+.profile-card {
+    background-color: c.$white;
+    border-radius: 0.9375rem;
+    min-width: 20.375rem;
+    max-width: 21.875rem;
+    box-shadow: 0 3.125rem 6.25rem -1.25rem hsla(197, 84%, 20%, 25%);
+}
+
+.profile-card-top {
+    width: 100%;
+    height: 8.75rem;
+    background-image: url("../assets/bg-pattern-card.svg");
+    background-size: cover;
+    border-start-start-radius: 0.9375rem;
+    border-start-end-radius: 0.9375rem;
+}
+
+.avatar {
+    display: block;
+    box-sizing: content-box;
+    width: 6rem;
+    height: 6rem;
+    margin-inline: auto;
+    margin-block-start: -3.3125rem;
+    margin-block-end: s.spacing(200);
+    border-radius: 50%;
+    border: 0.3125rem solid c.$white;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(300);
+    align-items: center;
+    width: 100%;
+}
+
+.user-detail {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(100);
+    align-items: center;
+}
+
+.user-heading {
+    display: flex;
+    flex-direction: row;
+    gap: s.spacing(100);
+}
+
+.user-name {
+    @include t.text-preset-1-bold;
+    color: c.$navy-950;
+}
+
+.user-age {
+    @include t.text-preset-1-regular;
+    color: c.$gray-500;
+}
+
+.user-location {
+    @include t.text-preset-2;
+    color: c.$gray-500;
+}
+
+.stats-group {
+    display: flex;
+    flex-direction: row;
+    gap: s.spacing(700);
+    justify-content: center;
+    padding-block: s.spacing(300);
+    border-block-start: 0.0625rem solid c.$gray-100;
+    width: 100%
+}
+
+.stat-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: s.spacing(100);
+}
+
+.stat-value {
+    @include t.text-preset-1-bold;
+    color: c.$navy-950;
+}
+
+.stat-description {
+    @include t.text-preset-3;
+    color: c.$gray-500;
+}
